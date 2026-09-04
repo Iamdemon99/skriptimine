@@ -1,5 +1,6 @@
 #!/bin/bash
-#skript küsib kasutaja ees ja perenime ning annab vastuse
+#skript küsib kasutaja ees ja perenime ning salvestab need eraldi muutujatesse
 
-read -p "sisesta oma ees ja perenimi: " nimi
-echo "Tere tulemast, $nimi"
+echo -n "Sisesta oma ees- ja perenimi: "
+read eesnimi perenimi
+echo "Sinu eesnimi on $eesnimi ja perenimi on $perenimi"
