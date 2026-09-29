@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Loosib 5 unikaalset numbrit (1-50) ja salvestab faili
+generate_lottery_numbers() {
+    local lottery_file="$1"
+    local -a l_numbers=()
+    local rand_num
+
+    while [ ${#l_numbers[@]} -lt 5 ]; do
+        rand_num=$(( ($RANDOM % 50) + 1 ))
+
+        if ! contains "$rand_num" "${l_numbers[@]}"; then
+            l_numbers+=("$rand_num")
+            echo "$rand_num" >> "$lottery_file"
+        fi
+    done
+
+    echo "${l_numbers[@]}"
+}
+
+# Kuvab loositud võidunumbrid
+show_lottery_numbers() {
+    local -a l_numbers=("$@")
+    echo ""
+    echo "Loositud võidunumbrid:"
+    for n in "${l_numbers[@]}"; do
+        echo "$n"
+    done
+}
