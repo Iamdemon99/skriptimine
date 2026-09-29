@@ -1,1 +1,1 @@
-echo "*.sh text eol=lf" >> .gitattributes
+echo '*.sh text eol=lf' >> .gitattributes
