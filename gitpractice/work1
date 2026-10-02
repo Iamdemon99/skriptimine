@@ -1,0 +1,15 @@
+cd ~/skriptimine/work
+
+cat << 'EOF' > README.md
+README
+
+Minu git projekt
+Tegin githowto harjutusi.
+
+Käsud mida kasutasin:
+git add
+git commit
+git push
+
+Kõik töötab.
+EOF
