@@ -1,0 +1,32 @@
+# GitHowTo - Praktiline Giti Õpijuhend ja Projektikokkuvõte
+
+Käesolev repositoorium on loodud praktilise interaktiivse kursuse **GitHowTo** läbimisel. Projekti eesmärk oli teha läbi reaalne versioonihaldussüsteemi kasutamine käsureal, õppida tundma harude (*branches*) haldamist, muudatuste ajaloo jälgimist ning mäluseisundite taastamist.
+
+---
+
+## 1. Mis on Git ja kuidas toimib selle põhitöövoog?
+
+**Git** on hajusa arhitektuuriga versioonihaldussüsteem, mis võimaldab arendajatel jälgida koodi muudatusi, pöörduda vajadusel tagasi varasemate versioonide juurde ning teha sujuvalt meeskonnatööd.
+
+### Giti kolm peamist ala ja töövoog
+
+Giti põhitöövoog tugineb kolme ala vahelisele liikumisele:
+
+1. **Töökaust (*Working Directory*):** Kohalik kaust arvutis, kus faile luuakse ja muudetakse. Need muudatused ei ole veel Giti poolt salvestatud.
+2. **Lavastusala (*Staging Area / Index*):** Vaheala, kuhu lisatakse käsuga `git add` need muudatused, mida soovitakse järgmise salvestusega kaasata.
+3. **Püsiv repositoorium (*Repository / History*):** Koht, kus käsk `git commit` salvestab staging-alal olevad muudatused püsivalt ajalukku eraldiseisva "stseenina" (*commit*).
+
+### Tüüpiline töövoo näide käsureal
+
+```bash
+# 1. Vaatame muudetud failide olekut
+git status
+
+# 2. Lisame muudatused lavastusalale
+git add README.md
+
+# 3. Salvestame muudatused kohalikku ajalukku
+git commit -m "Täiendatud README.md faili põhjaliku dokumentatsiooniga"
+
+# 4. Saadame kohalikud muudatused kaugelementi (GitHubi)
+git push origin master
