@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-
 service="$1"
 
-# Kontrollib ainult, kas sellise nimega unit-file on süsteemis olemas.
-# See ei tõenda, et teenus hetkel töötab.
-if systemctl list-unit-files --type=service 2>/dev/null | awk '{print $1}' | grep -qx "${service}.service"; then
+if [ -z "$service" ]; then
+    echo "Viga: teenuse nime ei sisestatud."
+    exit 1
+fi
+
+if systemctl is-active --quiet "$service" 2>/dev/null; then
     echo "Teenus $service töötab."
     exit 0
 else
