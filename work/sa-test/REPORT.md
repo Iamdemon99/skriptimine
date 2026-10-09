@@ -66,3 +66,12 @@ Kuupäev: $(date '+%d.%m.%Y')
 - **Mida lisasin:** Logifailide vaatamise skript `scripts/view_logs.sh` ning täiendasin pea-menüüd `main.sh`.
 - **Kuidas käivitada:** Käivita `main.sh` ja vali `6`.
 - **Kuidas kontrollisin, et tulemus on õige:** Veendusin logifaili viimase 10 rea kuva õigsuses.
+---
+
+## Probleemide lühikokkuvõte
+- **system_info.sh:** Väljad ja käsud olid vahetuses (kuvas RAM-i asemel Swap-mälu ning uptime'i asemel kuupäeva).
+- **disk_check.sh:** Luges `df` käsu 4. veerust vaba ruumi mahtu, mitte 5. veerust tegelikku kasutusprotsenti.
+- **service_check.sh:** Kontrollis vaid teenuse faili olemasolu kettal (`list-unit-files`), mitte seda, kas teenus reaalselt töötab (`is-active`).
+- **user_check.sh (asukoht):** Otsis kasutajat failist `/etc/group`, mis sisaldab gruppe, mitte kasutajaid.
+- **user_check.sh (loogika):** Kontrollis tingimust `>= 0`, mis oli alati tõene, sest `grep -c` tagastab alati vähemalt nulli.
+- **backup.sh:** Suunas `find` käsu väljundi otse faili, tekitades `.tar.gz` nimega tavalise tekstifaili, mitte tegelikku pakitud arhiivi.
