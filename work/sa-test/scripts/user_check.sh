@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-
 username="$1"
 
-# Grupifail ei ole usaldusväärne allikas kasutajakonto olemasolu kontrollimiseks.
-matches=$(grep -c "$username" /etc/group 2>/dev/null)
+if [ -z "$username" ]; then
+    echo "Viga: kasutajanime ei sisestatud."
+    exit 1
+fi
 
-# grep -c annab 0 või rohkem; see tingimus on alati tõene.
-if [ "$matches" -ge 0 ]; then
+if id "$username" &>/dev/null; then
     echo "Kasutaja $username eksisteerib."
     exit 0
 else
