@@ -1,6 +1,6 @@
 # Arvestustöö raport
 
-- **Nimi:** Eesnimi Perekonnanimi
+- **Nimi:** Reiko Limbak
 - **Variant:** A
 - **Kuupäev:** 09.10.2026
 
@@ -39,7 +39,7 @@
 - **Mis oli tegelikult vale:** Otsiti `/etc/group` failist, kus on grupid, mitte kasutajad.
 - **Kuidas vea avastasin:** Vaatasin koodis faili teed.
 - **Millise käsuga kontrollisin:** `id <kasutaja>`
-- **Parandus:** Asendati otsing käsuga `id "$username" &>/devnull`.
+- **Parandus:** Asendati otsing käsuga `id "$username" &>/dev/null`.
 - **Kuidas kontrollisin pärast parandust:** Testisin olemasoleva ja olematu kasutajaga.
 
 ## Probleem 5
